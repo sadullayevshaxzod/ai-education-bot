@@ -1,35 +1,25 @@
-"""
-Base models shared across the project.
-"""
-
-from __future__ import annotations
-
 from django.db import models
-
-from .managers import ActiveManager
+from django.utils import timezone
 
 
 class BaseModel(models.Model):
-    """
-    Abstract base model.
-
-    Provides:
-        - created_at
-        - updated_at
-    """
-    objects=ActiveManager()
-    all_objects=models.Manager()
-    created_at=models.DateTimeField(
+    created_at = models.DateTimeField(
         auto_now_add=True,
-        verbose_name="Created_at"
     )
-    updated_at=models.DateTimeField(
+
+    updated_at = models.DateTimeField(
         auto_now=True,
-        verbose_name="Updated_at"
+    )
+
+    deleted_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        default=None,
     )
 
     class Meta:
-        abstract=True
+        abstract = True
 
-    def __str__(self) ->str:
-        return f"{self.__class__.__name__} ({self.pk})"
+    def soft_delete(self) -> None:
+        self.deleted_at = timezone.now()
+        self.save(update_fields=["deleted_at"])
