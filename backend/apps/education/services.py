@@ -13,7 +13,6 @@ class SubjectService:
     """
     Business logic for subjects.
     """
-
     @staticmethod
     def get_active_subjects():
         """
@@ -22,9 +21,8 @@ class SubjectService:
         return Subject.objects.filter(
             is_active=True,
         ).order_by("order")
-
     @staticmethod
-    def get_subject(subject_id: int) -> Subject:
+    def get_subject(subject_id: int) ->Subject:
         """
         Return a subject by ID.
         """
@@ -33,14 +31,12 @@ class SubjectService:
             is_active=True,
         )
 
-
 class LessonService:
     """
     Business logic for lessons.
     """
-
     @staticmethod
-    def get_lessons(subject: Subject):
+    def get_lessons(subject:Subject):
         """
         Return all active lessons of a subject.
         """
@@ -48,37 +44,32 @@ class LessonService:
             subject=subject,
             is_active=True,
         ).order_by("order")
-
     @staticmethod
-    def get_lesson(lesson_id: int) -> Lesson:
+    def get_lesson(lesson_id: int) ->Lesson:
         """
-        Return lesson by ID.
+        Return lesson by ID
         """
         return Lesson.objects.get(
             pk=lesson_id,
             is_active=True,
         )
-
     @staticmethod
-    def get_first_lesson(subject: Subject) -> Lesson | None:
+    def get_first_lesson(subject: Subject) ->Lesson | None:
         """
         Return the first lesson of a subject.
         """
         return (
             Lesson.objects.filter(
-                subject=subject,
-                is_active=True,
-            )
-            .order_by("order")
-            .first()
+            subject=subject,
+            is_active=True,
         )
-
+        .order_by("order")
+        .first()
+        )
     @staticmethod
-    def get_next_lesson(
-        lesson: Lesson,
-    ) -> Lesson | None:
+    def get_next_lesson(lesson: Lesson) ->Lesson | None :
         """
-        Return the next lesson.
+        Return the next lesson
         """
         return (
             Lesson.objects.filter(
@@ -89,3 +80,6 @@ class LessonService:
             .order_by("order")
             .first()
         )
+        
+    
+        
