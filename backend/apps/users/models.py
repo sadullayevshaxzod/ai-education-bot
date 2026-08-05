@@ -87,6 +87,14 @@ class User(BaseModel):
         verbose_name_plural = "Users"
         ordering = ["-created_at"]
 
+    @property
+    def is_authenticated(self) -> bool:
+        return True
+
+    @property
+    def is_anonymous(self) -> bool:
+        return False
+
     def __str__(self) -> str:
         return (
             self.username
