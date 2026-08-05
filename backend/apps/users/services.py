@@ -43,6 +43,56 @@ class UserService:
         )
 
     @staticmethod
+    def get_user(*, user_id: int) -> User:
+        """
+        Return user by id.
+        """
+
+        return User.objects.get(pk=user_id)
+
+    @staticmethod
+    @transaction.atomic
+    def update_profile(
+        *,
+        user: User,
+        username: str,
+        first_name: str,
+        last_name: str,
+        language: str,
+    ) -> User:
+        """
+        Update user profile.
+        """
+
+        user.username = username
+        user.first_name = first_name
+        user.last_name = last_name
+        user.language = language
+
+        user.save(
+            update_fields=[
+                "username",
+                "first_name",
+                "last_name",
+                "language",
+            ]
+        )
+
+        return user
+
+    @staticmethod
+    def get_leaderboard():
+        """
+        Return users ordered by experience points.
+        """
+
+        return User.objects.order_by(
+            "-xp",
+            "-level",
+            "first_name",
+        )
+
+    @staticmethod
     def update_last_activity(user: User) -> None:
         """
         Update user's last activity time.
