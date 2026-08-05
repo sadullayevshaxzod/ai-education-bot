@@ -26,7 +26,6 @@ class SubjectListAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -49,7 +48,6 @@ class LessonListAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -82,7 +80,6 @@ class LessonDetailAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -110,7 +107,6 @@ class NextLessonAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 

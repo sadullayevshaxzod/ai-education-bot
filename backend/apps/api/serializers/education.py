@@ -67,7 +67,6 @@ class LessonDetailSerializer(serializers.ModelSerializer):
             "subject",
             "title",
             "description",
-            "content",
             "order",
             "xp_reward",
         )

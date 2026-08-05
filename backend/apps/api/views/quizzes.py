@@ -25,7 +25,6 @@ class QuestionListAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -54,7 +53,6 @@ class QuestionDetailAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -82,7 +80,6 @@ class QuestionChoicesAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -115,7 +112,6 @@ class NextQuestionAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 

@@ -46,9 +46,9 @@ class UserAchievementSerializer(serializers.ModelSerializer):
         fields = (
             "id",
             "achievement",
-            "unlocked_at",
+            "earned_at",
         )
         read_only_fields = (
             "id",
-            "unlocked_at",
+            "earned_at",
         )

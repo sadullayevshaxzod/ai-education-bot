@@ -24,7 +24,6 @@ class UserProfileAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -46,7 +45,6 @@ class UserUpdateAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -93,7 +91,6 @@ class LeaderboardAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 

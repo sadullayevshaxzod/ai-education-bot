@@ -28,7 +28,6 @@ class StartSessionAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -63,7 +62,6 @@ class SubmitAnswerAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -109,7 +107,6 @@ class NextQuestionAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -145,7 +142,6 @@ class FinishSessionAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 

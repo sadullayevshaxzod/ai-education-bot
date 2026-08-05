@@ -23,7 +23,6 @@ class AchievementListAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -46,7 +45,6 @@ class UserAchievementListAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -71,7 +69,6 @@ class AchievementDetailAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -99,7 +96,6 @@ class UnlockAchievementAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
@@ -141,7 +137,6 @@ class CheckLevelAchievementsAPIView(APIView):
     """
 
     permission_classes = (
-        IsAuthenticated,
         IsActiveUser,
     )
 
